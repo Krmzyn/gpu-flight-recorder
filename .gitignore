@@ -21,10 +21,16 @@ htmlcov/
 .ruff_cache/
 .tox/
 
-# Local recorder output
+# Environment / secrets (keep .env.example tracked)
+.env
+.env.*
+!.env.example
+
+# Local recorder output and generated reports
 logs/
 session-*/
 GPUFlightRecorder/
+/final_report.md
 *.jsonl
 *.log
 *.zip
@@ -35,10 +41,19 @@ GPUFlightRecorder/
 *.mdmp
 *.wer
 
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
 # Local config
 config.json
 config.local.json
 *.local.json
+
+# Local screenshots (may contain machine-specific data)
+/screenshots/
+*.local.png
 
 # Editors and OS files
 .vscode/

@@ -2,15 +2,16 @@
 
 Thanks for considering a contribution.
 
-GPU Flight Recorder is source-available under the PolyForm Noncommercial License 1.0.0. By submitting a contribution, you agree that your contribution can be used, modified, and distributed under that same license, and may be included in future versions of the project.
+GPU Flight Recorder is released under the [MIT License](LICENSE). By submitting a
+contribution, you agree that your contribution is provided under the same MIT
+License and may be included in future versions of the project.
 
 ## Ground Rules
 
 - Do not include private logs, support bundles, crash dumps, machine identifiers, or personal paths in issues or pull requests.
 - Keep changes focused. This tool is intentionally local, small, and Windows-focused.
 - Preserve the manual GUI flow unless the issue is explicitly about another runner mode.
-- Do not add runtime dependencies without a clear reason.
-- Do not call this project open source; the license is noncommercial source-available.
+- Do not add runtime dependencies without a clear reason. The package intentionally ships with zero third-party runtime dependencies.
 
 ## Development
 

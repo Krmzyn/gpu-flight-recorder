@@ -23,19 +23,17 @@ The verify command should start, print event query health, and exit without crea
 ## Public Safety Check
 
 ```powershell
-rg -n "C:\\Users\\|OneDrive\\|AppData\\|Minidump|Minidumps|LiveKernelReports|PRIVATE|SECRET|TOKEN|PASSWORD|API_KEY" .
+rg -n "C:\\Users\\|OneDrive\\|AppData\\|Minidump|Minidumps|LiveKernelReports|PRIVATE|SECRET|TOKEN|PASSWORD|API_KEY|Puffy|PolyForm" .
 ```
 
-Expected public examples such as `C:\Users\You` or documented Windows paths are fine. Real private paths, secrets, dumps, session logs, or support ZIPs are not.
+Expected public examples such as `C:\Users\You` or documented Windows paths are fine. Real private paths, secrets, dumps, session logs, support ZIPs, or leftover private author/license tokens are not.
 
 ## License and Wording
 
-- `LICENSE` is present.
-- `NOTICE.md` is present.
-- `COMMERCIAL_USE.md` is present.
-- README says source-available/noncommercial.
-- README does not call the project open source.
-- No docs imply commercial use is allowed.
+- `LICENSE` is present and is the MIT License.
+- Copyright line names the intended author.
+- README, `pyproject.toml`, and `LICENSE` all agree on MIT.
+- GitHub owner placeholders in `README.md` and `pyproject.toml` have been replaced with the real GitHub owner.
 
 ## GitHub Release
 
@@ -56,5 +54,5 @@ Suggested notes:
 ```text
 First public beta of GPU Flight Recorder, a local Windows diagnostic recorder for GPU/display freezes and driver-path stalls.
 
-This is source-available for noncommercial use under PolyForm Noncommercial 1.0.0. It is a diagnostic tool, not a repair tool.
+Released under the MIT License. It is a diagnostic tool, not a repair tool, and it is a portfolio-quality beta.
 ```

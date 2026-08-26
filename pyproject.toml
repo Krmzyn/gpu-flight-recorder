@@ -8,9 +8,9 @@ version = "0.1.0b1"
 description = "Local Windows recorder for GPU/display freezes and driver-path stalls."
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "PolyForm-Noncommercial-1.0.0" }
+license = { text = "MIT" }
 authors = [
-  { name = "Puffy" }
+  { name = "Alex Jardine" }
 ]
 keywords = [
   "diagnostics",
@@ -25,19 +25,21 @@ classifiers = [
   "Environment :: Win32 (MS Windows)",
   "Intended Audience :: Developers",
   "Intended Audience :: End Users/Desktop",
-  "License :: Other/Proprietary License",
+  "License :: OSI Approved :: MIT License",
   "Operating System :: Microsoft :: Windows",
-  "Private :: Do Not Upload",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: System :: Hardware",
   "Topic :: System :: Monitoring"
 ]
 dependencies = []
 
 [project.urls]
-License = "https://polyformproject.org/licenses/noncommercial/1.0.0/"
+Homepage = "https://github.com/Krmzyn/gpu-flight-recorder"
+Repository = "https://github.com/Krmzyn/gpu-flight-recorder"
+Issues = "https://github.com/Krmzyn/gpu-flight-recorder/issues"
 
 [project.scripts]
 gpu-flight-recorder = "gpu_flight_recorder.__main__:main"
