@@ -2,6 +2,8 @@
 
 GPU Flight Recorder is a local, zero-dependency Windows tool that continuously records GPU, display, power, and Windows-event evidence so you can tell what actually happened during a display freeze or driver-recovery event — instead of guessing.
 
+> **Built with:** Python 3.11+, Tkinter, Windows Win32 APIs via `ctypes`, PowerShell, NVIDIA `nvidia-smi`, append-only JSONL logs, `unittest`, and GitHub Actions.
+
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![Platform: Windows](https://img.shields.io/badge/platform-Windows%2010%2F11-0078D6)
