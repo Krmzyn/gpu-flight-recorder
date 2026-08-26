@@ -3,7 +3,7 @@ setlocal
 cd /d "%~dp0"
 
 if "%~1"=="" (
-    echo Usage: GPUFlightRecorderMarker.bat "screen froze"
+    echo Usage: GPUFlightRecorderMarker.bat "display froze / observed"
     exit /b 2
 )
 

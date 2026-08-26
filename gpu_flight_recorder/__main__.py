@@ -50,7 +50,7 @@ def main() -> None:
     if len(sys.argv) >= 2 and sys.argv[1].lower() == "marker":
         note = " ".join(sys.argv[2:]).strip()
         if not note:
-            raise SystemExit('Usage: python -m gpu_flight_recorder marker "screen froze"')
+            raise SystemExit('Usage: python -m gpu_flight_recorder marker "display froze / observed"')
         path = add_marker_to_active(note)
         print(f"Marker written to {path}")
         return

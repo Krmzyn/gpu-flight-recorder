@@ -244,7 +244,7 @@ class CoreTests(unittest.TestCase):
         writer.close()
         writer = JsonlWriter(session / "markers.jsonl", False)
         writer.write(
-            {"timestamp": "2026-07-03T10:19:40.000-04:00", "note": "screen froze"}
+            {"timestamp": "2026-07-03T10:19:40.000-04:00", "note": "display froze / observed"}
         )
         writer.close()
         return session
@@ -386,7 +386,7 @@ class CoreTests(unittest.TestCase):
             writer.write({"timestamp": "2026-07-04T08:49:50.000-04:00", "caps_lock": {"toggled": True}})
             writer.close()
             writer = JsonlWriter(session / "markers.jsonl", False)
-            writer.write({"timestamp": "2026-07-04T08:49:42.000-04:00", "note": "screen froze"})
+            writer.write({"timestamp": "2026-07-04T08:49:42.000-04:00", "note": "display froze / observed"})
             writer.write({"timestamp": "2026-07-04T08:49:55.000-04:00", "note": "audio continued"})
             writer.close()
             report = generate_report(session)

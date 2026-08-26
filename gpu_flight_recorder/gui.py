@@ -122,8 +122,8 @@ class GpuFlightRecorderApp(tk.Tk):
         quick_markers = ttk.Frame(marker)
         quick_markers.pack(fill=tk.X, pady=(8, 0))
         for note in [
-            "screen froze",
-            "screen came back",
+            "display froze / observed",
+            "display recovered",
             "caps lock responded",
             "audio continued",
             "driver reset attempted",

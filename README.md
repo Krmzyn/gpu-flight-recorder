@@ -57,14 +57,14 @@ After editable install:
 gpu-flight-recorder
 ```
 
-Click **Start Recording**, leave it running while you work, and add markers when something important happens. The quick buttons cover common notes like `screen froze`, `screen came back`, `started Blender`, `started Fusion`, and `opened Claude`.
+Click **Start Recording**, leave it running while you work, and add markers when something important happens. The quick buttons cover common notes like `display froze / observed`, `display recovered`, `started Blender`, `started Fusion`, and `opened Claude`.
 
 If the app is not running as administrator it will offer to relaunch elevated before recording. You can continue unelevated, but the session diagnostics will record the reduced coverage.
 
 Add a marker from a terminal while the GUI recorder is running:
 
 ```powershell
-python -m gpu_flight_recorder marker "screen froze"
+python -m gpu_flight_recorder marker "display froze / observed"
 ```
 
 Or:
@@ -72,6 +72,14 @@ Or:
 ```bat
 GPUFlightRecorderMarker.bat "caps lock responded"
 ```
+
+During an actual display freeze, you probably cannot click a GUI button. The practical flow is:
+
+1. Press Caps Lock or Num Lock once while the screen is frozen.
+2. When the display comes back, click `display froze / observed`.
+3. Add `display recovered` if the recovery time is not obvious.
+
+The keyboard-state collector records lock-key changes separately, so that is the stronger during-freeze signal. The manual freeze marker is a human observation marker after the fact, not proof of the exact freeze start time.
 
 Verify Windows Event Log coverage without starting a recording session:
 
@@ -161,10 +169,10 @@ This is the file to share when asking for help. It avoids full raw logs by defau
 
 ## Interpreting Results
 
-- If heartbeat continues after you mark `screen froze`, Windows was still alive and the issue is likely in the display/output/driver path.
+- If heartbeat continues near a `display froze / observed` marker, Windows was still alive and the issue is likely in the display/output/driver path.
 - If heartbeat stops at the same time as the freeze, suspect a broader system stall, kernel hang, power interruption, or hard GPU failure.
 - If `nvidia-smi` fails while heartbeat continues, the NVIDIA driver/GPU management path may be unavailable while Windows remains responsive.
-- If keyboard state changes or a `caps lock responded` marker appear while the display is frozen, Windows input is still alive.
+- If keyboard state changes or a `caps lock responded` marker appears while the display is frozen, Windows input is still alive.
 - If a LiveKernelReports or WATCHDOG dump filename appears after recovery, include that filename/timestamp when asking for help.
 - If events only appear after recovery or reboot, compare their timestamps with the final sample and your markers.
 - The freeze classifier ignores unmarked startup GPU-probe blips during the warmup window and only treats sustained or clustered probe failures as stall evidence.

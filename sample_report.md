@@ -8,14 +8,13 @@
 - GPU samples: 890 total, 145 in final 10 minutes
 - GPU probe failures: 2 total, 2 in final 10 minutes
 - Events: 3 total, 2 in final 10 minutes
-- Markers: 4
+- Markers: 5
 
 ## Freeze Classification
 
-- Analysis window uses screen-freeze marker: 2026-07-03T10:42:46-04:00 to 2026-07-03T10:43:34-04:00.
+- Analysis window uses display-freeze marker: 2026-07-03T10:42:46-04:00 to 2026-07-03T10:43:34-04:00.
 - Heartbeat evidence present: logger/Windows proof-of-life records continued in the analysis window.
 - Display-path stall likely: heartbeat continued, input/audio evidence exists, and GPU probing failed or stalled.
-- NVIDIA management path wedge: heartbeat continued while nvidia-smi timed out, failed, or stopped producing successful samples.
 - Thermal/power pressure unlikely: temperature, power, and VRAM were not elevated in the analysis window.
 
 ## Final Five Minutes
@@ -58,7 +57,7 @@
 ## Markers
 
 - 2026-07-03T10:30:02.000-04:00: started Blender render
-- 2026-07-03T10:43:01.000-04:00: screen froze
-- 2026-07-03T10:43:34.000-04:00: screen came back
+- 2026-07-03T10:43:01.000-04:00: display froze / observed
+- 2026-07-03T10:43:34.000-04:00: display recovered
 - 2026-07-03T10:43:35.000-04:00: caps lock responded
 - 2026-07-03T10:44:10.000-04:00: rebooted

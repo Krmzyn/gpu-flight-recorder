@@ -157,7 +157,7 @@ def load_session(session_dir: Path) -> dict[str, Any]:
 def _analysis_window(data: dict[str, Any], end: datetime) -> tuple[datetime, datetime, str]:
     markers = data["markers"]
     freeze_markers = [
-        marker for marker in markers if any(token in str(marker.get("note", "")).lower() for token in ("screen froze", "freeze", "froze"))
+        marker for marker in markers if any(token in str(marker.get("note", "")).lower() for token in ("freeze", "froze"))
     ]
     if not freeze_markers:
         return end - timedelta(minutes=5), end, "final 5 minutes"
@@ -171,7 +171,7 @@ def _analysis_window(data: dict[str, Any], end: datetime) -> tuple[datetime, dat
         if marker_time and marker_time > freeze_time and any(token in note for token in ("came back", "recovered", "responded")):
             recovery_time = marker_time
             break
-    return freeze_time - timedelta(seconds=15), recovery_time or freeze_time + timedelta(minutes=5), "screen-freeze marker"
+    return freeze_time - timedelta(seconds=15), recovery_time or freeze_time + timedelta(minutes=5), "display-freeze marker"
 
 
 def _classifier_setting(info: dict[str, Any], override: Config | None, name: str) -> Any:
