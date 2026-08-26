@@ -269,3 +269,5 @@ Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Please nev
 ## License
 
 GPU Flight Recorder is released under the [MIT License](LICENSE) — free to use, modify, and distribute, including commercially, with attribution.
+
+Created by [Alex Jardine](https://github.com/Krmzyn).
