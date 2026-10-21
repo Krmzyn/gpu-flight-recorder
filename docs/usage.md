@@ -98,11 +98,11 @@ The only application-specific environment variable is `GPU_FLIGHT_RECORDER_CONFI
 
 The recorder is local-only. It does not upload anything, take screenshots, read documents, install a driver, or change registry keys or GPU settings.
 
-It can still capture sensitive diagnostic context: process names/PIDs, foreground process, GPU model and driver version, Windows event metadata and messages, dump filenames and timestamps, monitor/display topology and EDID-derived timing, power/wake timing, markers you type, and collector diagnostics. Command-line capture is **disabled by default**. The default support bundle is trimmed and redacted, but it is still a diagnostic artifact from your machine. Review it before sharing.
+It can still capture sensitive diagnostic context: process names/PIDs, foreground process, GPU model and driver version, Windows event metadata and messages, dump filenames and timestamps, monitor/display topology and EDID-derived timing, power/wake timing, markers you type, and collector diagnostics. Command-line capture is disabled by default. The default support bundle is trimmed and redacted, but it is still a diagnostic artifact from your machine. Review it before sharing.
 
 ## Limitations
 
-- This is a **beta**, not production-hardened software.
+- This is a beta, not production-hardened software.
 - Windows + NVIDIA only. There is no AMD/Intel GPU path and no macOS/Linux support (the collectors use Win32 APIs, `nvidia-smi`, and PowerShell).
 - It is not a kernel debugger and cannot prove every GPU driver failure mode.
 - Some `nvidia-smi` per-process rows may show `[Insufficient Permissions]` without administrator rights.

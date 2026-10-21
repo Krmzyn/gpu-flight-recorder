@@ -4,16 +4,16 @@
 
 ## Key Capabilities
 
-- **1-second heartbeat proof-of-life** that never calls `nvidia-smi`, so a wedged GPU tool cannot hide whether Windows was still alive.
-- **Isolated NVIDIA GPU probe** in its own worker with a hard timeout: GPU name, driver version, utilization, VRAM, temperature, power, clocks, pstate, PCIe link, display attached/active. Probe failures and timeouts go to a *separate* stream.
-- **Keyboard lock-state tracking** (Caps/Num/Scroll Lock) as a during-freeze "is input still alive?" signal.
-- **Display mode and topology**: resolution/refresh, HDMI/DisplayPort output technology, monitor friendly name, EDID native timing, advanced color/HDR metadata, and below-native-refresh detection.
-- **Structured Windows Event Log capture** for Kernel-Power, BugCheck/WER, Display 4101 (TDR), WHEA, and NVIDIA `nvlddmkm` (including Xid extraction), with per-query health so empty channels are visible instead of silently missing.
-- **Sleep/resume/wake markers** derived from Kernel-Power and Power-Troubleshooter events.
-- **Filename-only crash-dump scan** of LiveKernelReports/WATCHDOG and both minidump locations (resolved from the `CrashControl` registry key).
-- **Manual markers** (typed or one-click) plus a **freeze classifier** that distinguishes a likely display-path stall from an NVIDIA management-path wedge, a thermal/power event, or a full system stall.
-- **Privacy-trimmed support bundle** (ZIP) for sharing when you ask for help.
-- **Zero third-party runtime dependencies**: Python standard library only.
+- 1-second heartbeat proof-of-life that never calls `nvidia-smi`, so a wedged GPU tool cannot hide whether Windows was still alive.
+- Isolated NVIDIA GPU probe in its own worker with a hard timeout: GPU name, driver version, utilization, VRAM, temperature, power, clocks, pstate, PCIe link, display attached/active. Probe failures and timeouts go to a *separate* stream.
+- Keyboard lock-state tracking (Caps/Num/Scroll Lock) as a during-freeze "is input still alive?" signal.
+- Display mode and topology: resolution/refresh, HDMI/DisplayPort output technology, monitor friendly name, EDID native timing, advanced color/HDR metadata, and below-native-refresh detection.
+- Structured Windows Event Log capture for Kernel-Power, BugCheck/WER, Display 4101 (TDR), WHEA, and NVIDIA `nvlddmkm` (including Xid extraction), with per-query health so empty channels are visible instead of silently missing.
+- Sleep/resume/wake markers derived from Kernel-Power and Power-Troubleshooter events.
+- Filename-only crash-dump scan of LiveKernelReports/WATCHDOG and both minidump locations (resolved from the `CrashControl` registry key).
+- Manual markers (typed or one-click) plus a freeze classifier that distinguishes a likely display-path stall from an NVIDIA management-path wedge, a thermal/power event, or a full system stall.
+- Privacy-trimmed support bundle (ZIP) for sharing when you ask for help.
+- Zero third-party runtime dependencies: Python standard library only.
 
 ## Example output
 
@@ -75,14 +75,14 @@ exporter.py  -> support_bundle_*.zip    (privacy-trimmed, last N minutes)
 
 Supporting modules:
 
-- **`collectors.py`**: all data acquisition: Win32 APIs via `ctypes` (memory, display config, EDID, keyboard state, foreground process), the `nvidia-smi` subprocess, and PowerShell `Get-WinEvent` / `Get-Process` queries.
-- **`io_utils.py`**: append-only JSONL writer with flush + `fsync`, atomic JSON writes, and ISO-8601 timestamps.
-- **`marker.py`**: active-session pointer + CLI marker injection into a running session.
-- **`config.py`**: dataclass config with JSON overrides and a redacted view for support bundles.
-- **`tk_bootstrap.py`**: best-effort Tcl/Tk path resolution so the GUI starts across Python installs.
+- `collectors.py`: all data acquisition: Win32 APIs via `ctypes` (memory, display config, EDID, keyboard state, foreground process), the `nvidia-smi` subprocess, and PowerShell `Get-WinEvent` / `Get-Process` queries.
+- `io_utils.py`: append-only JSONL writer with flush + `fsync`, atomic JSON writes, and ISO-8601 timestamps.
+- `marker.py`: active-session pointer + CLI marker injection into a running session.
+- `config.py`: dataclass config with JSON overrides and a redacted view for support bundles.
+- `tk_bootstrap.py`: best-effort Tcl/Tk path resolution so the GUI starts across Python installs.
 
 Design choices worth calling out:
 
-- The heartbeat is **decoupled from `nvidia-smi`**. A hung GPU query can never block or hide proof-of-life.
-- GPU probe **failures are first-class data** in their own stream, not swallowed exceptions.
-- Unclean sessions are **recovered on next launch**: the recorder finds sessions still marked "running," writes recovery diagnostics, and regenerates their report.
+- The heartbeat is decoupled from `nvidia-smi`. A hung GPU query can never block or hide proof-of-life.
+- GPU probe failures are first-class data in their own stream, not swallowed exceptions.
+- Unclean sessions are recovered on next launch: the recorder finds sessions still marked "running," writes recovery diagnostics, and regenerates their report.

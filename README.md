@@ -2,7 +2,7 @@
 
 A local diagnostic recorder for Windows and NVIDIA display freezes.
 
-I built this to keep evidence when the screen stalls: a heartbeat independent of the GPU probe, Windows events, power transitions and markers that can be compared after recovery. **Public beta.** Python 3.11+ with no third-party runtime dependencies.
+I built this to keep evidence when the screen stalls: a heartbeat independent of the GPU probe, Windows events, power transitions and markers that can be compared after recovery. Public beta. Python 3.11+ with no third-party runtime dependencies.
 
 [Quick start](#quick-start) · [Architecture](docs/architecture.md) · [Usage and privacy](docs/usage.md) · [Case study](https://alexjardinedigital.com/work/gpu)
 
@@ -21,7 +21,7 @@ python -m gpu_flight_recorder
 
 Click **Start Recording** and leave it running while you work. Administrator access improves coverage; the app also supports reduced coverage without elevation. Full setup and recording instructions are in the [usage guide](docs/usage.md).
 
-## The engineering
+## How it works
 
 - **Independent heartbeat:** a stalled `nvidia-smi` call cannot hide whether the recorder is still alive.
 - **Separate evidence streams:** append-only JSONL records hold GPU samples, probe failures, keyboard state, events, power transitions and markers.
