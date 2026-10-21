@@ -36,7 +36,7 @@ After an editable install you can also run:
 gpu-flight-recorder
 ```
 
-Click **Start Recording**, leave it running while you work, and add markers when something important happens. Quick buttons cover common notes like `display froze / observed`, `display recovered`, `started Blender`, `started Fusion`, and `opened Claude`. If the app is not elevated it will offer to relaunch as administrator before recording; you can decline and continue with reduced coverage.
+Click **Start Recording**, leave it running while you work, and add markers when something important happens. Quick buttons cover common notes like `display froze / observed`, `display recovered`, `started Blender`, `started Fusion`, and `opened Chrome`. If the app is not elevated it will offer to relaunch as administrator before recording; you can decline and continue with reduced coverage.
 
 ### During an actual freeze
 

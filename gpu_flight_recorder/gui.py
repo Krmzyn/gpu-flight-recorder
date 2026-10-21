@@ -129,7 +129,7 @@ class GpuFlightRecorderApp(tk.Tk):
             "driver reset attempted",
             "started Blender",
             "started Fusion",
-            "opened Claude",
+            "opened Chrome",
             "rebooted",
         ]:
             ttk.Button(quick_markers, text=note, command=lambda value=note: self._quick_marker(value)).pack(side=tk.LEFT, padx=(0, 6), pady=(0, 4))

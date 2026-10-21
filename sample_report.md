@@ -45,7 +45,6 @@
 | Process | PID | CPU % | RAM MB | Responding |
 | --- | ---: | ---: | ---: | --- |
 | blender.exe | 12344 | 18.2 | 6120.4 | True |
-| claude.exe | 28632 | 0.7 | 412.1 | True |
 | dwm.exe | 1668 | 2.1 | 180.3 | True |
 
 ## Recent Windows Events
